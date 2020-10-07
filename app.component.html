@@ -1,0 +1,188 @@
+<td-layout #layout>
+  <td-navigation-drawer logo="assets:covalent" sidenavTitle="User" name="Vikram Bhatnagar" email="vik@foxhorizon.com">
+    <md-nav-list>
+      <ng-template let-item let-last="last" let-index="index" ngFor [ngForOf]="[0,1,2,3,4,5]">
+        <a md-list-item (click)="layout.close()"><md-icon>person</md-icon> MyColleague@foxhorizon.com {{index}}</a>
+      </ng-template>
+    </md-nav-list>
+    <md-nav-list td-navigation-drawer-menu>
+      <a md-list-item (click)="logout()"><md-icon>exit_to_app</md-icon>Sign out</a>
+    </md-nav-list>
+  </td-navigation-drawer>
+  <td-layout-nav-list #navList [sidenavWidth]="'257px'">
+    <div td-sidenav-toolbar-content layout="row" flex>
+      <div>
+        <button md-button [mdMenuTriggerFor]="menu">FoxHorizon <md-icon>arrow_drop_down</md-icon></button>
+        <md-menu #menu="mdMenu">
+          <button md-menu-item>Profile &amp; Account</button>
+          <button md-menu-item>Billing</button>
+          <button md-menu-item>Preferences</button>
+          <button md-menu-item>Help &amp; feedback</button>
+          <button md-menu-item>Report a Issue</button>
+        </md-menu>
+      </div>
+      <span flex></span>
+      <div>
+        <button md-icon-button [mdMenuTriggerFor]="notifyMenu"><md-icon>notifications</md-icon></button>
+        <md-menu #notifyMenu="mdMenu" x-position="before">
+          <button md-menu-item>Do not notify</button>
+          <button md-menu-item>Turn ON all Notifications</button>
+          <button md-menu-item>Adjust Email schedule...</button>
+          <md-divider></md-divider>
+          <button md-menu-item>Settings for #industies</button>
+          <button md-menu-item>Settings for #people</button>
+          <button md-menu-item>Settings for #startups</button>
+          <button md-menu-item>Notifications preferences...</button>
+        </md-menu>
+      </div>
+    </div>
+    <md-nav-list td-sidenav-content (click)="!media.query('gt-sm') && navList.close()">
+      <a md-list-item><md-icon md-list-icon>sort</md-icon> Dashboard</a>
+      <a md-list-item><md-icon md-list-icon>local_activity</md-icon> Activity</a>
+       <a md-list-item><md-icon md-list-icon>style</md-icon> Share Capital Activity</a>
+      <a md-list-item><md-icon md-list-icon>person_add_disabled</md-icon> My Board Members</a>
+      <a md-list-item><md-icon md-list-icon>chat</md-icon> Suggested Startup's</a>
+      <md-divider></md-divider>
+      <h3 md-subheader>NETWORK</h3>
+      <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="[0,1,2]">
+      <a md-list-item><md-icon md-list-icon>#</md-icon> my-favorite-{{i}}</a>
+      </ng-template>
+      <md-divider></md-divider>
+      <h3 md-subheader>MY LIST (5)</h3>
+      <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="[0,1,2,3]">
+        <a md-list-item><md-icon md-list-icon>#</md-icon> my-list-{{i}}</a>
+      </ng-template>
+      <md-divider></md-divider>
+      <h3 md-subheader>RESEARCH</h3>
+      <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="[0,1,2,3,4,5]">
+        <a md-list-item><md-icon color="accent" md-list-icon>lens</md-icon> fxh-research{{i}}</a>
+      </ng-template>
+    </md-nav-list>
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+      <div>
+        <div [mdMenuTriggerFor]="channelMenu" class="cursor-hover">#iot</div>
+        <md-menu #channelMenu="mdMenu">
+          <button md-menu-item>Jump to date...</button>
+          <button md-menu-item>Invite team members to join...</button>
+          <button md-menu-item>View details</button>
+          <button md-menu-item>Additional options...</button>
+          <md-divider></md-divider>
+          <button md-menu-item>Notification preferences</button>
+          <button md-menu-item>Mute #list</button>
+          <md-divider></md-divider>
+          <button md-menu-item>Add an app or integration</button>
+          <md-divider></md-divider>
+          <button md-menu-item>Leave #list</button>
+        </md-menu>
+        <div layout="row" layout-align="start center">
+          <md-icon class="md-caption">star</md-icon>
+          <md-icon class="md-caption push-left-sm">person</md-icon>
+          <span class="md-caption">94</span>
+          <md-icon class="md-caption push-left-sm">account_balance</md-icon>
+          <span class="md-caption">34</span>
+          <md-icon class="md-caption push-left-sm">timeline</md-icon>
+          <span class="md-caption">13</span>
+          <span class="md-caption push-left-sm">Saved</span>
+        </div>
+      </div>
+      <span flex></span>
+      <td-search-box placeholder="Search" [showUnderline]="false"></td-search-box>
+      <button md-icon-button mdTooltip="Help"><md-icon>help_center</md-icon></button>
+      <button md-icon-button mdTooltip="Conversation settings"><md-icon>settings</md-icon></button>
+      <button md-icon-button mdTooltip="Show conversation details" (click)="channelInfo.toggle()"><md-icon>chrome_reader_mode</md-icon></button>
+      <button md-icon-button mdTooltip="Show activity"><md-icon>@</md-icon></button>
+      <button md-icon-button mdTooltip="Show starred items"><md-icon>star_border</md-icon></button>
+      <button md-icon-button mdTooltip="More items"><md-icon>more_vert</md-icon></button>
+    </div>
+    <md-sidenav-container fullscreen>
+      <md-sidenav #channelInfo mode="side" align="end">
+        <div layout="column" layout-fill>
+          <md-toolbar>
+            <span>About #list</span>
+            <span flex></span>
+            <button md-icon-button (click)="channelInfo.toggle()"><md-icon>cancel</md-icon></button>
+          </md-toolbar>
+        </div>
+      </md-sidenav>
+      <md-card tdMediaToggle="gt-xs" [mediaClasses]="['push-sm']">
+        <md-list>
+          <ng-template let-item let-i="index" let-last="last" ngFor [ngForOf]="[0,1,2,3,4,5,6,7,8,9]">
+            <md-list-item>
+              <img md-list-avatar src="http://lorempixel.com/40/40/business/{{i}}" />
+              <h3 md-line class="cursor-pointer"> Company, Person or News </h3>
+              <p md-line>
+                <span class="text-wrap">
+                  {{ 'Tags, Text, Founded, Bus. Model, etc' | truncate:100 }}
+                </span>
+              </p>
+            </md-list-item>
+            <md-divider *ngIf="!last" md-inset></md-divider>
+          </ng-template>
+        </md-list>
+      </md-card>
+    </md-sidenav-container>
+    <td-layout-footer-inner>
+      <div layout="row" layout-align="start center">
+        <div>
+          <button md-icon-button mdTooltip="Add content" mdTooltipPosition="after" [mdMenuTriggerFor]="chatMenu"><md-icon>add</md-icon></button>
+          <md-menu #chatMenu="mdMenu">
+            <button md-menu-item>Add notes</button>
+            <button md-menu-item>Add file</button>
+            <button md-menu-item>Create Mention</button>
+          </md-menu>
+        </div>
+        <md-input-container class="push-left push-right" flex layout="row" floatPlaceholder="never">
+          <textarea flex mdInput placeholder="FoxHorizon ChatBot"></textarea>
+        </md-input-container>
+        <div>
+          <button md-icon-button mdTooltip="Add emoji" mdTooltipPosition="before" [mdMenuTriggerFor]="emojiMenu"><md-icon>sentiment_very_satisfied</md-icon></button>
+          <md-menu #emojiMenu="mdMenu" x-position="before">
+            <td-menu>
+              <div td-menu-header>
+                <md-button-toggle>
+                  <md-icon>access_time</md-icon>
+                </md-button-toggle>
+                <md-button-toggle>
+                  <md-icon>sentiment_very_satisfied</md-icon>
+                </md-button-toggle>
+                <md-button-toggle>
+                  <md-icon>spa</md-icon>
+                </md-button-toggle>
+                <md-button-toggle>
+                  <md-icon>room_service</md-icon>
+                </md-button-toggle>
+              </div>
+              <div style="height:200px;" class="push">
+                <div layout="row" layout-wrap>
+                  <button flex="20" md-icon-button><md-icon>mood</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>mood_bad</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>sentiment_dissatisfied</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>sentiment_neutral</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>sentiment_satisfied</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>sentiment_very_dissatisfied</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>sentiment_very_satisfied</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>whatshot</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>face</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>pan_tool</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>pregnant_woman</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>pets</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>rowing</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>touch_app</md-icon></button>
+                  <button flex="20" md-icon-button><md-icon>visibility_off</md-icon></button>
+                </div>
+              </div>
+              <div td-menu-footer>
+                <div layout="row" layout-align="center center" class="push-sm">
+                  <span class="md-subhead">Emoji Deluxe</span>
+                  <span flex></span>
+                  <span>:happy:</span>
+                  <md-icon>sentiment_very_satisfied</md-icon>
+                </div>
+              </div>
+            </td-menu>
+          </md-menu>
+        </div>
+      </div>
+    </td-layout-footer-inner>
+  </td-layout-nav-list>
+</td-layout>

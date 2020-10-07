@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FoxHorizon</title>
+    
+    <!-- Load common libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/2.2.0/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.8.4/zone.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.41/system.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    
+    <!-- Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+
+    <script>
+      System
+        .import('main.ts')
+        .catch(console.error.bind(console));
+    </script>
+    
+    <!-- Load the stylesheet -->
+    <link href="https://unpkg.com/@covalent/core@1.0.0-beta.4/common/platform.css" rel="stylesheet">
+
+    <!-- Load the theme -->
+    <link href="https://unpkg.com/@covalent/core@1.0.0-beta.4/theming/prebuilt/indigo-pink.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <covalent-app>
+      <div style="padding: 20%;text-align:center;">
+        <img src="https://i.ibb.co/0BCwqbN/fxhpurple.jpg" width="100">
+        <h3>FoxHorizon Loading...</h3>
+      </div>
+    </covalent-app>
+  </body>
+
+</html>
